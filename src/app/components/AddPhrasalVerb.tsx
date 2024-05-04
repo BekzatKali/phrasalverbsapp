@@ -16,7 +16,7 @@ const AddPhrasalVerb = ({ userId }: {userId: string}) => {
             <input type="text" name="phrasalVerb" placeholder="Enter Phrasal Verb" className='outline-none bg-orange-200 p-2 placeholder-black' required/>
             <input type="text" name="example" placeholder="Enter Example" className='outline-none bg-orange-200 p-2 placeholder-black' required/>
             <input type="hidden" name="userId" value={userId} />
-            <button className='outline-none bg-orange-200 p-2 placeholder-black hover:bg-orange-300 duration-500'>Add</button>
+            <button className='outline-none bg-orange-200 p-2 hover:bg-orange-300 duration-500'>Add</button>
         </form>
     </div>
   )

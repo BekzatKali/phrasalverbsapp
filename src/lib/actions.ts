@@ -174,10 +174,31 @@ export const updatePhrasalVerb = async ({ id, phrasalVerb, example }: {id: strin
 export const getAllPhrasalVerbs = async () => {
     try {
         connectToDB();
-        const phrasalVerbs = await PhrasalVerb.find({});
+        const phrasalVerbs = await PhrasalVerb.find({}).populate('user');
         return phrasalVerbs;
     } catch (err) {
         console.log(err);
         throw new Error("Failed to fetch phrasal verbs");
     }
 }
+
+export const userRegistration = async (formData: any) => {
+    const {username, email, password} = Object.fromEntries(formData);
+
+    try {
+        connectToDB();
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword
+        })
+        await newUser.save();
+    } catch (err) {
+        console.log(err);
+        throw new Error("Failed to add user");
+    }
+
+    redirect("/dashboard")
+} 

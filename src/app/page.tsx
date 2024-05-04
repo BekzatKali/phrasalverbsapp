@@ -13,7 +13,6 @@ export default async function Home() {
   
   return (
     <main>
-      Here we go again, the only options are to be strong and successful. The strength and success are inevitable for me!
       <Login />
     </main>
   );

@@ -40,7 +40,7 @@ const phrasalVerbSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
-});
+}, {timestamps: true});
 
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const PhrasalVerb = mongoose.models?.PhrasalVerb || mongoose.model("PhrasalVerb", phrasalVerbSchema);

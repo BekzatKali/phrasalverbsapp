@@ -6,10 +6,11 @@ import React, { useState } from 'react'
 type EditPhrasalVerbProps = {
   id: string,
   phrasalVerb: string,
-  example: string
+  example: string,
+  createdBy?: string
 }
 
-const EditPhrasalVerb = ({ id, phrasalVerb, example }: EditPhrasalVerbProps) => {
+const EditPhrasalVerb = ({ id, phrasalVerb, example, createdBy }: EditPhrasalVerbProps) => {
   const [edited, setEdited] = useState(false);
   const [initialPhrasalVerb, setInitialPhrasalVerb] = useState(phrasalVerb);
   const [initialExample, setInitialExample] = useState(example);
@@ -22,6 +23,7 @@ const EditPhrasalVerb = ({ id, phrasalVerb, example }: EditPhrasalVerbProps) => 
       phrasalVerb: initialPhrasalVerb,
       example: initialExample
     });
+
     setEdited(false);
   }
 
@@ -49,6 +51,9 @@ const EditPhrasalVerb = ({ id, phrasalVerb, example }: EditPhrasalVerbProps) => 
                   {!edited ? "Edit" : "Cancel"}
               </button>
             </div>
+            {/* {createdBy ? (<div className='flex gap-1 mt-2'>
+              Added By: <p>{createdBy}</p>
+            </div>) : null} */}
         </div>
   )
 }
