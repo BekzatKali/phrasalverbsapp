@@ -7,7 +7,6 @@ const PhrasalVerbsPage = async () => {
   
   return (
     <div>
-        <h1 className='font-bold mb-4'>All The Phrasal Verbs</h1>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
             {phrasalVerbs.map((item) => (
                 <PhrasalVerbCard 

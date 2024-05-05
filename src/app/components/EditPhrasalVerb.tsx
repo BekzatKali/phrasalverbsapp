@@ -32,7 +32,7 @@ const EditPhrasalVerb = ({ id, phrasalVerb, example, createdBy }: EditPhrasalVer
             {!edited ? (
               <div className='mb-2'>
                 <p className='uppercase font-bold'>{phrasalVerb}</p>
-                <p>{example}</p>
+                <p>{example.slice(0,1).toUpperCase() + example.slice(1)}</p>
               </div>
             ) : (
               <div className='mt-auto'>
