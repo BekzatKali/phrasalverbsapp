@@ -161,7 +161,7 @@ export const updatePhrasalVerb = async ({ id, phrasalVerb, example }: {id: strin
         });
 
         await PhrasalVerb.findByIdAndUpdate(id, updateFields);
-        console.log("successful update of phrasal verb happened")
+        console.log("successful update of phrasal verb happened");
     } catch (err) {
         console.log(err);
         throw new Error("Failed to update phrasal verb");
