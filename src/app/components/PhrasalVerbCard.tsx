@@ -27,7 +27,6 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
                 id={id}
                 phrasalVerb={phrasalVerb}
                 example={example}
-                createdBy={createdBy}
               />
             </div>
             <div className='flex gap-2 mt-auto flex-col'>

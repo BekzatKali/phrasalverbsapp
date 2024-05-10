@@ -92,7 +92,7 @@ export const fetchUser = async (id: string) => {
 }
 
 export const updateUser = async (formData: any) => {
-    const {id, username, email, password, isAdmin} = Object.fromEntries(formData);
+    const { id, username, email, password, isAdmin } = Object.fromEntries(formData);
     
     try {
       connectToDB();
@@ -142,7 +142,7 @@ export const deletePhrasalVerbById = async (formData: any) => {
         console.log(err);
         throw new Error("Failed to delete phrasal verb");
     }
-    revalidatePath("/dashboard")
+    revalidatePath("/dashboard");
 }
 
 export const updatePhrasalVerb = async ({ id, phrasalVerb, example }: {id: string, phrasalVerb: string, example: string}) => {
@@ -183,7 +183,7 @@ export const getAllPhrasalVerbs = async () => {
 }
 
 export const userRegistration = async (formData: any) => {
-    const {username, email, password} = Object.fromEntries(formData);
+    const { username, email, password } = Object.fromEntries(formData);
 
     try {
         connectToDB();
@@ -193,12 +193,12 @@ export const userRegistration = async (formData: any) => {
             username,
             email,
             password: hashedPassword
-        })
+        });
         await newUser.save();
     } catch (err) {
         console.log(err);
         throw new Error("Failed to add user");
     }
 
-    redirect("/dashboard")
+    redirect("/dashboard");
 } 

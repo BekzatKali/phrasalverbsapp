@@ -21,7 +21,6 @@ const Navbar = () => {
     <div className='bg-orange-200 p-8 flex justify-between'>
       <p className='uppercase text-xl font-extrabold'>Navbar</p>
       <div className='flex items-center gap-4'>
-        <button className='uppercase text-xl font-extrabold' onClick={() => signOut({ redirect: true, callbackUrl: '/' })} >Log Out</button>
         {!isAdmin && pathname !== "/" && favoritePhrasalVerbsOfUser.length >= 1 && (
           <div className='relative' onClick={() => setShow(true)}>
             <FaHeart size={30} />
@@ -33,7 +32,7 @@ const Navbar = () => {
       </div>
 
       {show ? (
-        <div className='h-screen w-[400px] fixed top-0 right-0 bg-orange-200 z-50 duration-500 p-4 flex flex-col gap-4'>
+        <div className='h-screen w-[250px] md:w-[400px] fixed top-0 right-0 bg-orange-200 z-50 duration-500 p-4 flex flex-col gap-4'>
           {favoritePhrasalVerbsOfUser.map((item) => (
             <div key={item.id}>
               <FavoritePhrasalVerbCard 
@@ -47,7 +46,7 @@ const Navbar = () => {
             </div>
           ))}
         </div>
-      ) : <div className='h-screen w-[400px] fixed top-0 right-[-110%] bg-orange-200 z-50 duration-500'>
+      ) : <div className='h-screen w-[250px] md:w-[400px] fixed top-0 right-[-110%] bg-orange-200 z-50 duration-500'>
       </div>
       }
 
