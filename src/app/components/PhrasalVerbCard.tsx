@@ -4,6 +4,7 @@ import EditPhrasalVerb from './EditPhrasalVerb';
 import Favorites from './Favorites';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
+import PhrasalVerbCardActions from './PhrasalVerbCardActions';
 
 type PhrasalVerbCardProps = {
   id: string,
@@ -31,24 +32,16 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
               />
             </div>
             {/* second */}
-            <div className='flex gap-2 mt-auto flex-col'>
-              {/* first */}
-              {isUser && <div className='flex justify-center max-[405px]:justify-start mb-2'>
-                <Favorites 
-                  id={id}
-                  userId={userId}
-                  phrasalVerb={phrasalVerb}
-                  example={example}
-                />  
-              </div>}   
-              {/* second */}
-              <form action={deletePhrasalVerbById}>
-                <input type="hidden" name="id" value={id}/>
-                <button className='bg-red-400 px-4 py-2 text-white hover:bg-red-600 duration-500 rounded-md'>
-                  Delete
-                </button>
-              </form>
-            </div>
+
+            <PhrasalVerbCardActions 
+              id={id}
+              userId={userId}
+              isUser={isUser}
+              phrasalVerb={phrasalVerb}
+              example={example}
+            />
+
+
           </div>
       </div>
       <div>

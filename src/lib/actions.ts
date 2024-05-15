@@ -134,8 +134,7 @@ export const getPhrasalVerbsByUserId = async (formData: any) => {
     }
 }
 
-export const deletePhrasalVerbById = async (formData: any) => {
-    const { id } = Object.fromEntries(formData);
+export const deletePhrasalVerbById = async (id: string) => {
     try {
         connectToDB();
         await PhrasalVerb.findByIdAndDelete(id);
