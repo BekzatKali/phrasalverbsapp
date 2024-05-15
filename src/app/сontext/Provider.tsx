@@ -13,6 +13,7 @@ type PhrasalVerbsInfoContext = {
   favoritePhrasalVerbs: PhrasalVerbCardProps[],
   setFavoritePhrasalVerbs: React.Dispatch<React.SetStateAction<PhrasalVerbCardProps[]>>,
   favorites: (phrasalVerbToAdd: PhrasalVerbCardProps) => void;
+  removePhrasalVerb: (id: string) => void;
 }
 
 const PhrasalVerbsInfoContext = createContext({} as PhrasalVerbsInfoContext);
@@ -33,6 +34,10 @@ const Provider = ({ children }: {children: React.ReactNode}) => {
   useEffect(() => {
     localStorage.setItem('favoritePhrasalVerbs', JSON.stringify(favoritePhrasalVerbs));
   }, [favoritePhrasalVerbs]);
+
+  const removePhrasalVerb = (id: string) => {
+    setFavoritePhrasalVerbs((prev) => prev.filter(item => item.id!== id));
+  }
 
   const favorites = (phrasalVerbToAdd: PhrasalVerbCardProps) => {
     const { id, userId, phrasalVerb, example } = phrasalVerbToAdd;
@@ -63,7 +68,8 @@ const Provider = ({ children }: {children: React.ReactNode}) => {
       value={{
         favoritePhrasalVerbs,
         setFavoritePhrasalVerbs,
-        favorites
+        favorites,
+        removePhrasalVerb
       }}
     >
       {children}

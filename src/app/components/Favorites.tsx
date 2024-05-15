@@ -30,7 +30,7 @@ const Favorites = ({ id, userId, phrasalVerb, example }: FavoritesProps) => {
 
   return (
     <div>
-        {!adding ? <FaRegHeart onClick={handleClick} size={30} /> :  <FaHeart onClick={handleClick} size={30} />}
+        {!adding ? <FaRegHeart className='cursor-pointer' onClick={handleClick} size={30} /> :  <FaHeart className='cursor-pointer' onClick={handleClick} size={30} />}
     </div>
   )
 }

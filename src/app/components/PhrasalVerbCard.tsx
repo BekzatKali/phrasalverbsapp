@@ -22,6 +22,7 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
     <div className='ring-1 p-2 flex flex-col justify-between'>
       <div className='h-full'>
           <div className='flex justify-between gap-2 h-full max-[405px]:flex-col'>
+            {/* first */}
             <div className='flex-1'>
               <EditPhrasalVerb 
                 id={id}
@@ -29,8 +30,10 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
                 example={example}
               />
             </div>
+            {/* second */}
             <div className='flex gap-2 mt-auto flex-col'>
-              {isUser && <div className='flex justify-center mb-2'>
+              {/* first */}
+              {isUser && <div className='flex justify-center max-[405px]:justify-start mb-2'>
                 <Favorites 
                   id={id}
                   userId={userId}
@@ -38,6 +41,7 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
                   example={example}
                 />  
               </div>}   
+              {/* second */}
               <form action={deletePhrasalVerbById}>
                 <input type="hidden" name="id" value={id}/>
                 <button className='bg-red-400 px-4 py-2 text-white hover:bg-red-600 duration-500 rounded-md'>

@@ -43,6 +43,7 @@ export const addPhrasalVerb = async (formData: any) => {
     
     try {
         connectToDB();
+        
         const newPhrasalVerb = new PhrasalVerb({
             phrasalVerb,
             example,
@@ -142,7 +143,7 @@ export const deletePhrasalVerbById = async (formData: any) => {
         console.log(err);
         throw new Error("Failed to delete phrasal verb");
     }
-    revalidatePath("/dashboard");
+    revalidatePath('/dashboard');
 }
 
 export const updatePhrasalVerb = async ({ id, phrasalVerb, example }: {id: string, phrasalVerb: string, example: string}) => {

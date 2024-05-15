@@ -1,7 +1,7 @@
 "use client"
 
 import { updatePhrasalVerb } from '@/lib/actions'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type EditPhrasalVerbProps = {
   id: string,
@@ -13,6 +13,12 @@ const EditPhrasalVerb = ({ id, phrasalVerb, example }: EditPhrasalVerbProps) => 
   const [edited, setEdited] = useState(false);
   const [initialPhrasalVerb, setInitialPhrasalVerb] = useState(phrasalVerb);
   const [initialExample, setInitialExample] = useState(example);
+
+  // very important part of the code
+  useEffect(() => {
+    setInitialPhrasalVerb(phrasalVerb);
+    setInitialExample(example);
+  }, [phrasalVerb, example]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

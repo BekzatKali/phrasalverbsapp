@@ -1,6 +1,6 @@
 "use client"
 
-import { signOut, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import React, { useState } from 'react'
 import { usePhrasalVerbsInfoContext } from '../сontext/Provider'
 import { FaHeart } from "react-icons/fa6";
@@ -22,7 +22,7 @@ const Navbar = () => {
       <p className='uppercase text-xl font-extrabold'>Navbar</p>
       <div className='flex items-center gap-4'>
         {!isAdmin && pathname !== "/" && favoritePhrasalVerbsOfUser.length >= 1 && (
-          <div className='relative' onClick={() => setShow(true)}>
+          <div className='relative cursor-pointer' onClick={() => setShow(true)}>
             <FaHeart size={30} />
             {favoritePhrasalVerbsOfUser.length > 0 ? (
               <span className='bottom-[-8px] right-[-4px] absolute text-white bg-red-500 flex justify-center items-center rounded-full w-[80%] h-[80%]'>{favoritePhrasalVerbsOfUser.length}</span>
@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
 
       {show ? (
-        <div className='h-screen w-[250px] md:w-[400px] fixed top-0 right-0 bg-orange-200 z-50 duration-500 p-4 flex flex-col gap-4'>
+        <div className='h-screen w-[250px] min-[500px]:w-[300px] md:w-[400px] fixed top-0 right-0 bg-orange-200 z-50 duration-500 p-4 flex flex-col gap-4'>
           {favoritePhrasalVerbsOfUser.map((item) => (
             <div key={item.id}>
               <FavoritePhrasalVerbCard 
