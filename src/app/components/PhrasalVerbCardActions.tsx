@@ -13,7 +13,7 @@ type PhrasalVerbCardActionsProps = {
     isUser: boolean,
 }
 
-const PhrasalVerbCardActions = ({id, userId, phrasalVerb, example, isUser}: PhrasalVerbCardActionsProps) => {
+const PhrasalVerbCardActions = ({ id, userId, phrasalVerb, example, isUser }: PhrasalVerbCardActionsProps) => {
 
   const { removePhrasalVerb } = usePhrasalVerbsInfoContext();
 

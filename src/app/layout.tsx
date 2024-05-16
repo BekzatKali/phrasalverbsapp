@@ -24,7 +24,7 @@ export default function RootLayout({
         <AuthProvider>
           <Provider>
             <Navbar />
-            <div className="min-h-[calc(100vh-186px)] p-8">
+            <div className="min-h-[calc(100vh-184px)] p-8">
               {children}
             </div>
             <Footer />

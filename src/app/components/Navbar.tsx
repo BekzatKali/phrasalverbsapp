@@ -18,12 +18,12 @@ const Navbar = () => {
   const favoritePhrasalVerbsOfUser = favoritePhrasalVerbs.filter((item) => item.userId === userId);
 
   return (
-    <div className='bg-orange-200 p-8 flex justify-between'>
+    <div className='bg-orange-200 p-8 flex justify-between items-center'>
       <p className='uppercase text-xl font-extrabold'>Navbar</p>
       <div className='flex items-center gap-4'>
         {!isAdmin && pathname !== "/" && favoritePhrasalVerbsOfUser.length >= 1 && (
           <div className='relative cursor-pointer' onClick={() => setShow(true)}>
-            <FaHeart size={30} />
+            <FaHeart size={28} />
             {favoritePhrasalVerbsOfUser.length > 0 ? (
               <span className='bottom-[-8px] right-[-4px] absolute text-white bg-red-500 flex justify-center items-center rounded-full w-[80%] h-[80%]'>{favoritePhrasalVerbsOfUser.length}</span>
             ) : null}

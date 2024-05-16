@@ -29,8 +29,8 @@ const FavoritePhrasalVerbCard = ({ id, userId, phrasalVerb, example, show, setSh
           <h2 className='font-bold text-xl uppercase'>{phrasalVerb}</h2>
           <p>{example.slice(0,1).toUpperCase() + example.slice(1)}</p>
         </div>
-        <div onClick={handleClick}>
-          <FaHeart size={30}/>
+        <div onClick={handleClick} className='cursor-pointer'>
+          <FaHeart size={28}/>
         </div>
     </div>
   )

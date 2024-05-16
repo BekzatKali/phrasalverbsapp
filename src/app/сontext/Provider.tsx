@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type PhrasalVerbCardProps = {
   id: string,
-  userId: string,
+  userId?: string,
   phrasalVerb: string,
   example: string
 }
@@ -14,6 +14,7 @@ type PhrasalVerbsInfoContext = {
   setFavoritePhrasalVerbs: React.Dispatch<React.SetStateAction<PhrasalVerbCardProps[]>>,
   favorites: (phrasalVerbToAdd: PhrasalVerbCardProps) => void;
   removePhrasalVerb: (id: string) => void;
+  updatePhrasalVerbProvider: (id: string, initialPhrasalVerb: string, initialExample: string) => void;
 }
 
 const PhrasalVerbsInfoContext = createContext({} as PhrasalVerbsInfoContext);
@@ -37,6 +38,10 @@ const Provider = ({ children }: {children: React.ReactNode}) => {
 
   const removePhrasalVerb = (id: string) => {
     setFavoritePhrasalVerbs((prev) => prev.filter(item => item.id!== id));
+  }
+
+  const updatePhrasalVerbProvider = (id: string, initialPhrasalVerb: string, initialExample: string) => {
+    setFavoritePhrasalVerbs((prev) => prev.map((item) => item.id === id ? {...item, phrasalVerb: initialPhrasalVerb, example: initialExample} : item))
   }
 
   const favorites = (phrasalVerbToAdd: PhrasalVerbCardProps) => {
@@ -69,7 +74,8 @@ const Provider = ({ children }: {children: React.ReactNode}) => {
         favoritePhrasalVerbs,
         setFavoritePhrasalVerbs,
         favorites,
-        removePhrasalVerb
+        removePhrasalVerb,
+        updatePhrasalVerbProvider
       }}
     >
       {children}

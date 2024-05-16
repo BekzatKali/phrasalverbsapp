@@ -2,6 +2,7 @@
 
 import { updatePhrasalVerb } from '@/lib/actions'
 import React, { useEffect, useState } from 'react'
+import { usePhrasalVerbsInfoContext } from '../сontext/Provider'
 
 type EditPhrasalVerbProps = {
   id: string,
@@ -13,6 +14,8 @@ const EditPhrasalVerb = ({ id, phrasalVerb, example }: EditPhrasalVerbProps) => 
   const [edited, setEdited] = useState(false);
   const [initialPhrasalVerb, setInitialPhrasalVerb] = useState(phrasalVerb);
   const [initialExample, setInitialExample] = useState(example);
+
+  const { updatePhrasalVerbProvider } = usePhrasalVerbsInfoContext();
 
   // very important part of the code
   useEffect(() => {
@@ -29,7 +32,10 @@ const EditPhrasalVerb = ({ id, phrasalVerb, example }: EditPhrasalVerbProps) => 
       example: initialExample
     });
 
+    updatePhrasalVerbProvider(id, initialPhrasalVerb, initialExample);
+
     setEdited(false);
+    // cool
   }
 
   return (
