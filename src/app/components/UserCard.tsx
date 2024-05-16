@@ -19,7 +19,7 @@ const UserCard = async ({id, username, email, isAdmin, createdAt}: UserCardProps
 
 
   return (
-    <div className='ring-1 p-4 flex flex-col gap-6'>
+    <div className='ring-1 p-4 flex flex-col gap-6 rounded-md'>
         <div className='flex flex-col gap-1'>
           <p><span className='font-bold'>User Id:</span> {id}</p>
           <p><span className='font-bold'>Username:</span> {username}</p>

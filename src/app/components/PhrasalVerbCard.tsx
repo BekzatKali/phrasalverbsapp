@@ -1,7 +1,5 @@
 import React from 'react'
-import { deletePhrasalVerbById } from '@/lib/actions';
 import EditPhrasalVerb from './EditPhrasalVerb';
-import Favorites from './Favorites';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import PhrasalVerbCardActions from './PhrasalVerbCardActions';
@@ -23,7 +21,6 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
     <div className='ring-1 p-2 flex flex-col justify-between'>
       <div className='h-full'>
           <div className='flex justify-between gap-2 h-full max-[405px]:flex-col'>
-            {/* first */}
             <div className='flex-1'>
               <EditPhrasalVerb 
                 id={id}
@@ -31,8 +28,6 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
                 example={example}
               />
             </div>
-            {/* second */}
-
             <PhrasalVerbCardActions 
               id={id}
               userId={userId}
@@ -40,8 +35,6 @@ const PhrasalVerbCard = async ({ id, phrasalVerb, example, createdBy, createdAt 
               phrasalVerb={phrasalVerb}
               example={example}
             />
-
-
           </div>
       </div>
       <div>

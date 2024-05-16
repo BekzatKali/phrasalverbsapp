@@ -73,6 +73,7 @@ export const deleteUser = async (formData: any) => {
     const { id } = Object.fromEntries(formData);
     try {
         connectToDB();
+        await PhrasalVerb.deleteMany({ user: id });
         await User.findByIdAndDelete(id);
     } catch (err) {
         console.log(err);

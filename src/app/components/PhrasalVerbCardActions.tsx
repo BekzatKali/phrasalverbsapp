@@ -23,8 +23,8 @@ const PhrasalVerbCardActions = ({ id, userId, phrasalVerb, example, isUser }: Ph
   }
 
   return (
-    <div className='flex gap-2 mt-auto flex-col'>
-        {isUser && <div className='flex justify-center max-[405px]:justify-start mb-2'>
+    <div className='flex gap-2 mt-auto flex-col max-[405px]:flex max-[405px]:flex-row-reverse max-[405px]:justify-between max-[405px]:items-center'>
+        {isUser && <div className='flex justify-center max-[405px]:justify-start mb-2 max-[405px]:mb-0'>
           <Favorites
             id={id}
             userId={userId}

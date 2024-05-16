@@ -17,11 +17,11 @@ const UsersPage = async () => {
     <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
         {users.map((user: UserType) => (
             <UserCard 
-                id={user._id.toString()}
-                username={user.username}
-                email={user.email}
-                isAdmin={user.isAdmin}
-                createdAt={user.createdAt.toString()}
+              id={user._id.toString()}
+              username={user.username}
+              email={user.email}
+              isAdmin={user.isAdmin}
+              createdAt={user.createdAt.toString()}
             />
         ))}
     </div>
